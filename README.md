@@ -12,6 +12,8 @@ A chess engine is an AI program for the game of chess. The best chess engines ha
 
 ## Wireframes
 
+![]()
+
 ## Technologies and technical challenges
 
 ### Board representation and move generation
@@ -74,18 +76,18 @@ We also need to have some way of guessing whether a position is good or bad for 
 ## Implementation timeline
 
 ### Day 1: Board representation and move generation
-- [] Create `Position` class (stores info about a chess position in bitboards)
-- [] Implement move generation for standard moves (i.e. no castling, en passant, pawn promotion)
+- [ ] Create `Position` class (stores info about a chess position in bitboards)
+- [ ] Implement move generation for standard moves (i.e. no castling, en passant, pawn promotion)
 
 
 ### Day 2: 
-- [] Implement board evaluation function
-- [] Implement castling, en passant, pawn promotion
+- [ ] Implement board evaluation function
+- [ ] Implement castling, en passant, pawn promotion
 
 ### Day 3:
-- [] Implement alpha-beta search
-- [] Add transposition table
-- 
+- [ ] Implement alpha-beta search
+- [ ] Add transposition table
+
 ### Day 4:
-- [] Implement XBoard interface
-- [] Finish any remaining tasks
+- [ ] Implement XBoard interface
+- [ ] Finish any remaining tasks

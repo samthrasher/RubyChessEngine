@@ -10,9 +10,8 @@ A chess engine is an AI program for the game of chess. The best chess engines ha
 - [ ]  Finds best moves in reasonable time.
 - [ ]  Interfaces with command-line chess UI
 
-## Wireframes
 
-![]()
+
 
 ## Technologies and technical challenges
 
@@ -23,7 +22,7 @@ Generating possible moves from a position is an important function of the chess 
 
 ### Search algorithm
 
-The goal of a search algorithm in a chess engine is to maximize the "value" of the board for one player, while assuming that the other player is trying to minimize it. This is called a "minimax" algorithm, and a pseudocode for it (see [https://en.wikipedia.org/wiki/Minimax](here)) looks like this:
+The goal of a search algorithm in a chess engine is to maximize the "value" of the board for one player, while assuming that the other player is trying to minimize it. This is called a "minimax" algorithm, and a pseudocode for it (see [here](https://en.wikipedia.org/wiki/Minimax) looks like this:
 ```
 01 function minimax(node, depth, maximizingPlayer)
 02     if depth = 0 or node is a terminal node
@@ -44,7 +43,11 @@ The goal of a search algorithm in a chess engine is to maximize the "value" of t
 15         return bestValue
 ```
 
+<<<<<<< HEAD
 Improvements on this algorithm can be made by introducing alpha-beta pruning: that is, if we are exploring a subtree of moves and find that some move by the opponent forces a worse position than the best outcome we have seen so far, then there is no need to look at other moves by the opponent. Pseudocode for the (https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)[alpha-beta search] is below:
+=======
+Improvements on this algorithm can be made by introducing alpha-beta pruning: that is, if we are exploring a subtree of moves and find that some move by the opponent forces a worse position than the best outcome we have seen so far, then there is no need to look at other moves by the opponent. Pseudocode for the [alpha-beta search](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning) is below:
+>>>>>>> 49866f854e878d18107e42ea10e1e617afc3aeae
 
 ```
 01 function alphabeta(node, depth, α, β, maximizingPlayer)

@@ -2,13 +2,13 @@
 
 ## Background
 
-A chess engine is an AI program for the game of chess. The best chess engines have outclassed the best human chess players at least since Deep Blue defeated Garry Kasparov in 1997. My goal is somewhat less lofty: to create a chess engine that is at least as good as myself. The techniques and algorithms for building chess engines are well-documented, so this project also constitutes an exploration into some pithy computer science content relating to search algorithms and data structures. 
+A chess engine is an AI program for the game of chess. The best chess engines have outclassed the best human chess players at least since Deep Blue defeated Garry Kasparov in 1997. My goal is somewhat less lofty: to create a chess engine that is at least as good as myself. The techniques and algorithms for building chess engines are well-documented, so this project also constitutes an exploration into some pithy computer science content relating to search algorithms and data structures.
 
 ## Functionality and MVP
 
-- [ ]  Exports a function that produces an evaluation with the best next move, given a chess position. 
+- [ ]  Exports a function that produces an evaluation with the best next move, given a chess position.
 - [ ]  Finds best moves in reasonable time.
-- [ ]  Implements minimal [http://home.hccnet.nl/h.g.muller/interfacing.txt](XBoard interface)
+- [ ]  Interfaces with command-line chess UI
 
 ## Wireframes
 
@@ -17,7 +17,7 @@ A chess engine is an AI program for the game of chess. The best chess engines ha
 ## Technologies and technical challenges
 
 ### Board representation and move generation
-A chess engine requires a bug-free representation of the game state, with all the rules of chess included. One compact way to do this is via bitboards: for each type of piece, we keep track of a 64-bit integer where each bit corresponds to a square on the chessboard and the value of the bit is the square's occupancy. This allows for facts about the game state to be represented as simple binary operations on bitboards. For example, if I want to know which squares are occupied by white pieces, then I can `AND` together all of the bitboards for the white pawns, rooks, knights, bishops, king and queen. 
+A chess engine requires a bug-free representation of the game state, with all the rules of chess included. One compact way to do this is via bitboards: for each type of piece, we keep track of a 64-bit integer where each bit corresponds to a square on the chessboard and the value of the bit is the square's occupancy. This allows for facts about the game state to be represented as simple binary operations on bitboards. For example, if I want to know which squares are occupied by white pieces, then I can `AND` together all of the bitboards for the white pawns, rooks, knights, bishops, king and queen.
 
 Generating possible moves from a position is an important function of the chess engine. Most chess engines today no longer use selective pruning---rather, they generate all possible moves from a position and evaluate each one. The search algorithm works best if we can order the generated moves so that the best move comes first, and certain moves are likely to be "killer moves" in a position: checks, captures, and moves that were played before in the same position.
 
@@ -44,7 +44,7 @@ The goal of a search algorithm in a chess engine is to maximize the "value" of t
 15         return bestValue
 ```
 
-Improvements on this algorithm can be made by introducing alpha-beta pruning: that is, if we are exploring a subtree of moves and find that some move by the opponent forces a worse position than the best outcome we have seen so far, then there is no need to look at other moves by the opponent. Pseudocode for the (https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)[alpha-beta search] is below: 
+Improvements on this algorithm can be made by introducing alpha-beta pruning: that is, if we are exploring a subtree of moves and find that some move by the opponent forces a worse position than the best outcome we have seen so far, then there is no need to look at other moves by the opponent. Pseudocode for the (https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)[alpha-beta search] is below:
 
 ```
 01 function alphabeta(node, depth, α, β, maximizingPlayer)
@@ -80,7 +80,7 @@ We also need to have some way of guessing whether a position is good or bad for 
 - [ ] Implement move generation for standard moves (i.e. no castling, en passant, pawn promotion)
 
 
-### Day 2: 
+### Day 2:
 - [ ] Implement board evaluation function
 - [ ] Implement castling, en passant, pawn promotion
 
@@ -89,5 +89,4 @@ We also need to have some way of guessing whether a position is good or bad for 
 - [ ] Add transposition table
 
 ### Day 4:
-- [ ] Implement XBoard interface
 - [ ] Finish any remaining tasks
